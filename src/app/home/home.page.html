@@ -5,7 +5,7 @@
     <ion-datetime display-format="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
   </ion-item>
   
-  <circle-progress
+  <circle-progress (click)="startTime()"
     [percent]="percent"
     [maxPercent]="100"
     [radius]="radius"
