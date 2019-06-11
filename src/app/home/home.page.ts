@@ -20,7 +20,7 @@ export class HomePage {
     h: '00',
     m: '00',
     s: '00'
-  }
+  };
 
   overallTimer: any = false;
 
@@ -49,7 +49,7 @@ export class HomePage {
       
       this.percent = Math.floor((this.progress / totalSeconds) * 100);
       this.progress++;
-    }, 1000)
+    }, 1000);
   }
 
   progressTimer() {
@@ -66,12 +66,26 @@ export class HomePage {
       this.elapsed.h = this.pad(this.elapsed.h, 2);
       this.elapsed.m = this.pad(this.elapsed.m, 2);
       this.elapsed.s = this.pad(this.elapsed.s, 2);
-    }, 1000)
+    }, 1000);
   }
 
   pad(num, size) {
     let s = num + ""; 
     while (s.length < size) s = "0" + s;
     return s;
+  }
+
+  stopTime() {
+    clearInterval(this.timer);
+    clearInterval(this.overallTimer);
+    this.overallTimer = false;
+    this.timer = false;
+    this.percent = 0;
+    this.progress = 0;
+    this.elapsed = {
+      h: '00',
+      m: '00',
+      s: '00'
+    };
   }
 }
